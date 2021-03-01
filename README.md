@@ -30,12 +30,12 @@ Only the `-a` or `--address` flag is required when using the `probe` argument.
 
 To use console full console mode, invoke probicon from the command line using the `probe` argument and pass in an address. For example:
 
-`probicon probe --address pfcurl.com`
+`probicon probe --address example.com`
 
 Probicon will then execute a health check on the given address and report back the results. In this simple example, probicon is only checking that the address
 that you gave it is responding. However, probicon is capable of check several other things as well to determine if the endpoint is healthy. For instance, running:
 
-`probicon probe --address pfcurl.com --code 200 --value login`
+`probicon probe --address example.com --code 200 --value login`
 
 will instruct probicon to not only check that the address is responding, but that it responds with an HTTP status code of 200 and that the word `login` is present
 in the content of the response. This is useful in cases where a web server may be responding, but it's responding with a 500 error message and should be considered
@@ -45,9 +45,9 @@ Probicon can be instructed to conduct its health check multiple times, or even f
 
 For example:
 
-`probicon probe --address pfcurl.com --repeat 3 --delay 10`
+`probicon probe --address example.com --repeat 3 --delay 10`
 
-will instruct probicon to repeat its check of pfcurl.com 3 times with a 10 second delay before each check. Passing a flag of `--repeat -1` will instruct 
+will instruct probicon to repeat its check of example.com 3 times with a 10 second delay before each check. Passing a flag of `--repeat -1` will instruct 
 probicon to continuously check the address until asked to stop (e.g. via ctrl+c).
 
 ## Serve Mode
@@ -68,7 +68,7 @@ The following are valid query string parameters:
 
 Example handler usage:
 
-`http://127.0.0.1:8080/probe?address=http://pfcurl.com&timeout=10&expectscode=200`
+`http://127.0.0.1:8080/probe?address=http://example.com&timeout=10&expectscode=200`
 
 Example handler response:
 
